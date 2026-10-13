@@ -577,7 +577,7 @@
         const fallbackCities = [
             { name: "Roma", lat: 41.9028, lon: 12.4964 },
             { name: "Milano", lat: 45.4642, lon: 9.1900 },
-            { name: "Belluno", lat: 46.1384, lon: 12.2163 }
+            { name: "Pegognaga", lat: 46.1384, lon: 12.2163 }
         ];
 
         let map, radarLayer, cloudLayer, gpsMarker;
@@ -588,8 +588,8 @@
         let isPlaying = true;
         let searchTimeout = null;
         
-        let currentCityName = "Belluno";
-        let favorites = ["Bologna", "Belluno"];
+        let currentCityName = "Pegognaga";
+        let favorites = ["Pegognaga", "Bologna"];
         let isSelectingOption = false;
 
         let initialMapCenter = [46.1384, 12.2163];
@@ -671,7 +671,7 @@
 
         function getNearestCity(lat, lon) {
             let minDist = Infinity;
-            let nearest = "Belluno";
+            let nearest = "Pegognaga";
             fallbackCities.forEach(city => {
                 const dist = Math.hypot(city.lat - lat, city.lon - lon);
                 if (dist < minDist) {
@@ -845,7 +845,7 @@
         function fallbackLocation(statusMsg = "GPS NON TROVATO") {
             const lastLat = parseFloat(localStorage.getItem('lastLat')) || 46.1384;
             const lastLon = parseFloat(localStorage.getItem('lastLon')) || 12.2163;
-            const savedCity = localStorage.getItem('lastCityName') || "Belluno";
+            const savedCity = localStorage.getItem('lastCityName') || "Pegognaga";
             
             currentCityName = savedCity;
             document.getElementById('searchBar').value = savedCity;
